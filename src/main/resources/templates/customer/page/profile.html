@@ -1,151 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/customer/layout/index :: dynamic(~{::title}, ~{::main})}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TUTA - Profile</title>
-  <link rel="icon" href="../img/Fevicon.png" type="image/png">
-
-  <link rel="stylesheet" href="../vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../vendors/linericon/style.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="../vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="../vendors/nouislider/nouislider.min.css">
-
-  <link rel="stylesheet" href="../css/style.css">
+    <title>TUTA - Profile</title>
 </head>
 
 <body>
-  <!--================ Start Header Menu Area =================-->
-  <header class="header_area">
-    <div class="main_menu">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <a class="navbar-brand logo_h" href="../index.html"><img src="../img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<main class="site-main">
+    <!--================Profile Area =================-->
+    <section class="checkout_area section-margin--small">
+        <div class="container">
+            <div class="returning_customer">
+                <button type="submit" value="submit" class="button"
+                        style="background-color: rgb(255, 76, 76); border: none; margin-bottom: 20px;">Đăng Xuất
                 </button>
-                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                    <ul class="nav-shop">
-                        <li class="nav-item"><button><i class="ti-user"></i></button></li>
-                        <li class="nav-item"><a href="cart.html"><button><i class="ti-shopping-cart"></i><span
-                                        class="nav-shop__circle">3</span></button> </a></li>
-                        <li class="nav-item"><a class="button button-header" href="shop.html">Mua Ngay</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
-  <!--================ End Header Menu Area =================-->
-
-  <!--================Checkout Area =================-->
-  <section class="checkout_area section-margin--small">
-    <div class="container">
-        <div class="returning_customer">
-            <button type="submit" value="submit" class="button"
-                style="background-color: rgb(255, 76, 76); border: none; margin-bottom: 20px;">Đăng Xuất</button>
-            <div class="billing_details">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <h3>Thông tin tài khoản</h3>
-                        <form class="row contact_form" action="#" method="post">
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name" placeholder="Họ">
+                <div class="billing_details">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h3>Thông tin tài khoản</h3>
+                            <form class="row contact_form" action="#" method="post">
+                                <div class="col-md-6 form-group p_star">
+                                    <input type="text" class="form-control" id="first" name="name" placeholder="Họ">
+                                </div>
+                                <div class="col-md-6 form-group p_star">
+                                    <input type="text" class="form-control" id="last" name="name" placeholder="Tên">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="number" name="number"
+                                           placeholder="Số điện thoại">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" id="email" name="compemailany"
+                                           placeholder="Email">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <select class="country_select">
+                                        <option value="1">Tỉnh/Thành Phố</option>
+                                        <option value="2">Bình Định</option>
+                                        <option value="4">Hồ Chí Minh</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="col-md-12 form-group p_star">
+                                  <input type="text" class="form-control" id="add1" name="add1">
+                                  <span class="placeholder" data-placeholder="Address line 01"></span>
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                  <input type="text" class="form-control" id="add2" name="add2">
+                                  <span class="placeholder" data-placeholder="Address line 02"></span>
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                  <input type="text" class="form-control" id="city" name="city">
+                                  <span class="placeholder" data-placeholder="Town/City"></span>
+                                </div> -->
+                                <div class="col-md-12 form-group p_star">
+                                    <select class="country_select">
+                                        <option value="1">Quận/Huyện</option>
+                                        <option value="2">Hoài Nhơn</option>
+                                        <option value="4">Quận Bình Tân</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <select class="country_select">
+                                        <option value="1">Xã/Phường</option>
+                                        <option value="2">Hoài Mỹ</option>
+                                        <option value="4">Bình Hưng Hòa B</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input type="text" class="form-control" name="name"
+                                           placeholder="Số Nhà/Địa Chỉ Cụ Thể">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <button class="btn button" style="width: 100%;">Sửa Thông Tin</button>
+                                </div>
+                            </form>
+                            <div
+                                    style="background-color: rgb(29, 87, 106); width: 100%; height: 3px; border-radius: 10px;">
                             </div>
-                            <div class="col-md-6 form-group p_star">
-                                <input type="text" class="form-control" id="last" name="name" placeholder="Tên">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="number" name="number"
-                                    placeholder="Số điện thoại">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="email" name="compemailany"
-                                    placeholder="Email">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                              <select class="country_select">
-                                <option value="1">Tỉnh/Thành Phố</option>
-                                <option value="2">Bình Định</option>
-                                <option value="4">Hồ Chí Minh</option>
-                              </select>
-                            </div>
-                              <!-- <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="add1" name="add1">
-                                <span class="placeholder" data-placeholder="Address line 01"></span>
-                              </div>
-                              <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="add2" name="add2">
-                                <span class="placeholder" data-placeholder="Address line 02"></span>
-                              </div>
-                              <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="city" name="city">
-                                <span class="placeholder" data-placeholder="Town/City"></span>
-                              </div> -->
-                            <div class="col-md-12 form-group p_star">
-                              <select class="country_select">
-                                <option value="1">Quận/Huyện</option>
-                                <option value="2">Hoài Nhơn</option>
-                                <option value="4">Quận Bình Tân</option>
-                              </select>
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                              <select class="country_select">
-                                <option value="1">Xã/Phường</option>
-                                <option value="2">Hoài Mỹ</option>
-                                <option value="4">Bình Hưng Hòa B</option>
-                              </select>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="last" name="name"
-                                    placeholder="Số Nhà/Địa Chỉ Cụ Thể">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <button class="btn button" style="width: 100%;">Sửa Thông Tin</button>
-                            </div>
-                        </form>
-                        <div
-                            style="background-color: rgb(29, 87, 106); width: 100%; height: 3px; border-radius: 10px;">
+                            <h3 class="mt-3">Đổi Mật Khẩu</h3>
+                            <form class="row contact_form" action="#" method="post">
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control"  name="name"
+                                           placeholder="Mật khẩu cũ">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" name="name"
+                                           placeholder="Mật khẩu mới">
+                                </div>
+                                <div class="col-md-12 form-group p_star">
+                                    <input type="text" class="form-control" name="name"
+                                           placeholder="Mật khẩu xác nhận mật khẩu mới">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <button class="btn button" style="width: 100%;">Đổi Mật Khẩu</button>
+                                </div>
+                            </form>
                         </div>
-                        <h3 class="mt-3">Đổi Mật Khẩu</h3>
-                        <form class="row contact_form" action="#" method="post">
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name"
-                                    placeholder="Mật khẩu cũ">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name"
-                                    placeholder="Mật khẩu mới">
-                            </div>
-                            <div class="col-md-12 form-group p_star">
-                                <input type="text" class="form-control" id="first" name="name"
-                                    placeholder="Mật khẩu xác nhận mật khẩu mới">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <button class="btn button" style="width: 100%;">Đổi Mật Khẩu</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="w-100">
-                            <h3 class="w-100">Thông tin đơn hàng</h3>
-                            <table class="w-100 text-center table-bordered">
-                                <thead>
+                        <div class="col-lg-6">
+                            <div class="w-100">
+                                <h3 class="w-100">Thông tin đơn hàng</h3>
+                                <table class="w-100 text-center table-bordered">
+                                    <thead>
                                     <tr>
                                         <th>Mã đơn hàng</th>
                                         <th>Ngày</th>
@@ -153,125 +109,42 @@
                                         <th>Phương thức thanh toán</th>
                                         <th>Xem thông tin</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                    </thead>
+                                    <tbody>
                                     <tr>
                                         <td>60235</td>
                                         <td>Oct 03, 2017</td>
                                         <td>USD 2210</td>
                                         <td>Thanh toán khi nhận hàng</td>
-                                        <td><button class="btn btn-primary" style=" border-radius: 20px;">Xem Chi
-                                                Tiết</button></td>
+                                        <td>
+                                            <button class="btn btn-primary" style=" border-radius: 20px;">Xem Chi
+                                                Tiết
+                                            </button>
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>60235</td>
                                         <td>Oct 03, 2017</td>
                                         <td>USD 2210</td>
                                         <td>Thanh toán khi nhận hàng</td>
-                                        <td><button class="btn btn-primary" style=" border-radius: 20px;">Xem Chi
-                                                Tiết</button></td>
+                                        <td>
+                                            <button class="btn btn-primary" style=" border-radius: 20px;">Xem Chi
+                                                Tiết
+                                            </button>
+                                        </td>
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                    </tbody>
+                                </table>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-</section>
-  <!--================End Checkout Area =================-->
-
-
-
-  <!--================ Start footer Area  =================-->
-  <footer>
-    <div class="footer-area footer-only">
-      <div class="container">
-        <div class="row section_gap">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h2 class="footer_title" style="font-size: 25px;">Sứ mệnh của chúng tôi</h2>
-              <p>
-                Sứ mệnh của chúng tôi là mang đến những sản phẩm và dịch vụ mang lại lợi ích cho khách
-                hàng.
-              </p>
-              <p>
-                Chúng tôi hướng đến việc xây dựng một môi trường sống và làm việc tốt hơn, mang lại giá
-                trị và cơ hội
-                phát triển cho cả cộng đồng và khách hàng của chúng tôi.
-              </p>
-            </div>
-          </div>
-          <div class="offset-lg-1 col-lg-4 col-md-12 col-sm-12">
-            <div class="single-footer-widget tp_widgets" style="text-align: center;">
-              <h4 class="footer_title">Liên kết nhanh</h4>
-              <ul class="list">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="forgotpassword.html">Forgot Password</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h4 class="footer_title">Liên Hệ Với Chúng Tôi</h4>
-              <div class="ml-40">
-                <p class="sm-head">
-                  <span class="fa fa-location-arrow"></span>
-                  Trụ sở chính
-                </p>
-                <p>Võ Nguyên Giáp, Hoài Nhơn, Bình Định</p>
-
-                <p class="sm-head">
-                  <span class="fa fa-phone"></span>
-                  Điện Thoại
-                </p>
-                <p>
-                  037 6758 600
-                </p>
-
-                <p class="sm-head">
-                  <span class="fa fa-envelope"></span>
-                  Email
-                </p>
-                <p>
-                  ads.tranvannhan@gmail.com
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row d-flex">
-          <p class="col-lg-12 footer-text text-center">
-            Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is
-            made with
-            <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/tranvannhan.77c1"
-              target="_blank">Trần Văn Nhân</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--================ End footer Area  =================-->
-
-  <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../vendors/skrollr.min.js"></script>
-  <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="../vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="../vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="../vendors/mail-script.js"></script>
-  <script src="../js/main.js"></script>
+    </section>
+    <!--================End Profile Area =================-->
+</main>
 </body>
 
 </html>

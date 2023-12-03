@@ -1,310 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/customer/layout/index :: dynamic(~{::title}, ~{::main})}">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>TUTA - Confirmation</title>
-  <link rel="icon" href="../img/Fevicon.png" type="image/png">
-  <link rel="stylesheet" href="../vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../vendors/linericon/style.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="../vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="../vendors/nouislider/nouislider.min.css">
-
-  <link rel="stylesheet" href="../css/style.css">
+    <title>TUTA - Confirmation</title>
 </head>
 
 <body>
-  <!--================ Start Header Menu Area =================-->
-  <header class="header_area">
-    <div class="main_menu">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <a class="navbar-brand logo_h" href="../index.html"><img src="../img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                    <ul class="nav-shop">
-                        <li class="nav-item"><button><i class="ti-user"></i></button></li>
-                        <li class="nav-item"><a href="cart.html"><button><i class="ti-shopping-cart"></i><span
-                                        class="nav-shop__circle">3</span></button> </a></li>
-                        <li class="nav-item"><a class="button button-header" href="shop.html">Mua Ngay</a></li>
-                    </ul>
+<main class="site-main">
+<!--================Order Details Area =================-->
+<section class="order_details section-margin--small">
+    <div class="container">
+        <p class="text-center billing-alert">Cảm ơn bạn. Đơn hàng của bạn đã được ghi nhận và xử lý...</p>
+        <div class="row mb-5">
+            <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+                <div class="confirmation-card">
+                    <h3 class="billing-title">Thông tin đơn hàng</h3>
+                    <table class="order-rable">
+                        <tr>
+                            <td>Mã đơn hàng</td>
+                            <td>: 60235</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày</td>
+                            <td>: Oct 03, 2017</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng tiền</td>
+                            <td>: USD 2210</td>
+                        </tr>
+                        <tr>
+                            <td>Phương thức thanh toán</td>
+                            <td>: Thanh toán khi nhận hàng</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-        </nav>
-    </div>
-</header>
-  <!--================ End Header Menu Area =================-->
-
-  <!--================Order Details Area =================-->
-  <section class="order_details section-margin--small">
-    <div class="container">
-      <p class="text-center billing-alert">Cảm ơn bạn. Đơn hàng của bạn đã được ghi nhận và xử lý...</p>
-      <div class="row mb-5">
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Thông tin đơn hàng</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Mã đơn hàng</td>
-                <td>: 60235</td>
-              </tr>
-              <tr>
-                <td>Ngày</td>
-                <td>: Oct 03, 2017</td>
-              </tr>
-              <tr>
-                <td>Tổng tiền</td>
-                <td>: USD 2210</td>
-              </tr>
-              <tr>
-                <td>Phương thức thanh toán</td>
-                <td>: Thanh toán khi nhận hàng</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Thông tin người nhận</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Họ và tên</td>
-                <td>: Trần Văn Nhân</td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td>: tranvannhan@gmail.com</td>
-              </tr>
-              <tr>
-                <td>Số điện thoại</td>
-                <td>: 0376758600</td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
-          <div class="confirmation-card">
-            <h3 class="billing-title">Địa chỉ giao hàng</h3>
-            <table class="order-rable">
-              <tr>
-                <td>Tỉnh/Thành phố</td>
-                <td>: Bình Định</td>
-              </tr>
-              <tr>
-                <td>Huyện/Quận</td>
-                <td>: Hoài Nhơn</td>
-              </tr>
-              <tr>
-                <td>Xã/Phường</td>
-                <td>: Hoài Mỹ</td>
-              </tr>
-              <tr>
-                <td>Số nhà/Địa chỉ cụ thể</td>
-                <td>: Võ Nguyên Giáp</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="order_details_table">
-        <h2>Chi tiết đơn hàng</h2>
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Sản phẩm</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Tổng tiền</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <p>Máy ảnh Fujifilm X-S20</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Máy ảnh Canon EOS R6</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p>Máy ảnh Sony Alpha A7S III</p>
-                </td>
-                <td>
-                  <h5>x 02</h5>
-                </td>
-                <td>
-                  <p>$720.00</p>
-                </td>
-              </tr>
-              <!-- <tr>
-                <td>
-                  <h4>TẠM TÍNH</h4>
-                </td>
-                <td>
-                  <h5></h5>
-                </td>
-                <td>
-                  <p>$2160.00</p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <h4>PHÍ VẬN CHUYỂN</h4>
-                </td>
-                <td>
-                  <h5></h5>
-                </td>
-                <td>
-                  <p>Giao hàng thông thường: $50.00</p>
-                </td>
-              </tr> -->
-              <tr>
-                <td>
-                  <h4>Tổng</h4>
-                </td>
-                <td>
-                  <h5></h5>
-                </td>
-                <td>
-                  <h4>$2210.00</h4>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================End Order Details Area =================-->
-
-
-
-  <!--================ Start footer Area  =================-->
-  <footer>
-    <div class="footer-area footer-only">
-      <div class="container">
-        <div class="row section_gap">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h2 class="footer_title" style="font-size: 25px;">Sứ mệnh của chúng tôi</h2>
-              <p>
-                Sứ mệnh của chúng tôi là mang đến những sản phẩm và dịch vụ mang lại lợi ích cho khách
-                hàng.
-              </p>
-              <p>
-                Chúng tôi hướng đến việc xây dựng một môi trường sống và làm việc tốt hơn, mang lại giá
-                trị và cơ hội
-                phát triển cho cả cộng đồng và khách hàng của chúng tôi.
-              </p>
+            <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+                <div class="confirmation-card">
+                    <h3 class="billing-title">Thông tin người nhận</h3>
+                    <table class="order-rable">
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td>: Trần Văn Nhân</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>: tranvannhan@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td>: 0376758600</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-          </div>
-          <div class="offset-lg-1 col-lg-4 col-md-12 col-sm-12">
-            <div class="single-footer-widget tp_widgets" style="text-align: center;">
-              <h4 class="footer_title">Liên kết nhanh</h4>
-              <ul class="list">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="forgotpassword.html">Forgot Password</a></li>
-              </ul>
+            <div class="col-md-6 col-xl-4 mb-4 mb-xl-0">
+                <div class="confirmation-card">
+                    <h3 class="billing-title">Địa chỉ giao hàng</h3>
+                    <table class="order-rable">
+                        <tr>
+                            <td>Tỉnh/Thành phố</td>
+                            <td>: Bình Định</td>
+                        </tr>
+                        <tr>
+                            <td>Huyện/Quận</td>
+                            <td>: Hoài Nhơn</td>
+                        </tr>
+                        <tr>
+                            <td>Xã/Phường</td>
+                            <td>: Hoài Mỹ</td>
+                        </tr>
+                        <tr>
+                            <td>Số nhà/Địa chỉ cụ thể</td>
+                            <td>: Võ Nguyên Giáp</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-          </div>
-          <div class="offset-lg-1 col-lg-3 col-md-6 col-sm-6">
-            <div class="single-footer-widget tp_widgets">
-              <h4 class="footer_title">Liên Hệ Với Chúng Tôi</h4>
-              <div class="ml-40">
-                <p class="sm-head">
-                  <span class="fa fa-location-arrow"></span>
-                  Trụ sở chính
-                </p>
-                <p>Võ Nguyên Giáp, Hoài Nhơn, Bình Định</p>
-
-                <p class="sm-head">
-                  <span class="fa fa-phone"></span>
-                  Điện Thoại
-                </p>
-                <p>
-                  037 6758 600
-                </p>
-
-                <p class="sm-head">
-                  <span class="fa fa-envelope"></span>
-                  Email
-                </p>
-                <p>
-                  ads.tranvannhan@gmail.com
-                </p>
-              </div>
+        </div>
+        <div class="order_details_table">
+            <h2>Chi tiết đơn hàng</h2>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p>Máy ảnh Fujifilm X-S20</p>
+                        </td>
+                        <td>
+                            <h5>x 02</h5>
+                        </td>
+                        <td>
+                            <p>$720.00</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Máy ảnh Canon EOS R6</p>
+                        </td>
+                        <td>
+                            <h5>x 02</h5>
+                        </td>
+                        <td>
+                            <p>$720.00</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Máy ảnh Sony Alpha A7S III</p>
+                        </td>
+                        <td>
+                            <h5>x 02</h5>
+                        </td>
+                        <td>
+                            <p>$720.00</p>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                      <td>
+                        <h4>TẠM TÍNH</h4>
+                      </td>
+                      <td>
+                        <h5></h5>
+                      </td>
+                      <td>
+                        <p>$2160.00</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <h4>PHÍ VẬN CHUYỂN</h4>
+                      </td>
+                      <td>
+                        <h5></h5>
+                      </td>
+                      <td>
+                        <p>Giao hàng thông thường: $50.00</p>
+                      </td>
+                    </tr> -->
+                    <tr>
+                        <td>
+                            <h4>Tổng</h4>
+                        </td>
+                        <td>
+                            <h5></h5>
+                        </td>
+                        <td>
+                            <h4>$2210.00</h4>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row d-flex">
-          <p class="col-lg-12 footer-text text-center">
-            Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script> All rights reserved | This website is
-            made with
-            <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://www.facebook.com/tranvannhan.77c1"
-              target="_blank">Trần Văn Nhân</a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!--================ End footer Area  =================-->
-
-
-
-  <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../vendors/skrollr.min.js"></script>
-  <script src="../vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="../vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="../vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="../vendors/mail-script.js"></script>
-  <script src="../js/main.js"></script>
+</section>
+<!--================End Order Details Area =================-->
+</main>
 </body>
 
 </html>
