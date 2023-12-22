@@ -17,54 +17,30 @@
                         <div class="head">Danh mục máy ảnh</div>
                         <ul class="main-categories">
                             <li class="common-filter">
-                                <form action="#">
-                                    <ul>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="men"
-                                                                       name="brand"><label
-                                                for="men">DSLR<span> (300)</span></label></li>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="women"
-                                                                       name="brand"><label
-                                                for="women">Mirrorless<span> (200)</span></label></li>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="accessories"
-                                                                       name="brand"><label
-                                                for="accessories">Compact<span> (100)</span></label></li>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="footwear"
-                                                                       name="brand"><label
-                                                for="footwear">Instax<span> (300)</span></label></li>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="bayItem"
-                                                                       name="brand"><label
-                                                for="bayItem">Medium Format<span> (500)</span></label></li>
-                                        <li class="filter-list"><input class="pixel-radio" type="radio" id="electronics"
-                                                                       name="brand"><label
-                                                for="electronics">Film<span> (400)</span></label></li>
+                                <form action="">
+                                    <ul th:each="cate: ${cates}">
+                                        <li class="filter-list">
+                                            <!--<input class="pixel-radio" type="radio"/>-->
+                                            <a class="categoryname" th:href="@{|/shop?cid=${cate.id}|}"><label th:text="${cate.name}"></label></a>
+                                            <span th:text="' ('+${cate.cameras.size()}+')'"></span>
+                                        </li>
                                     </ul>
                                 </form>
                             </li>
                         </ul>
                     </div>
                     <div class="sidebar-filter">
-                        <div class="top-filter-head">Bộ lọc sản phẩm</div>
-                        <div class="common-filter">
-                            <div class="head">Thương hiệu</div>
+                        <div class="top-filter-head">Danh mục Thương hiệu</div>
+                        <div class="common-filter mt-3">
                             <form action="#">
-                                <ul>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Canon<span>(29)</span></label>
-                                    </li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Sony<span>(29)</span></label>
-                                    </li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Fujifilm<span>(19)</span></label>
-                                    </li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Nikon<span>(19)</span></label>
-                                    </li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Leica<span>(19)</span></label>
-                                    </li>
-                                    <li class="filter-list"><input class="pixel-radio" type="radio"
-                                                                   name="brand"><label>Panasonic<span>(19)</span></label>
+                                <ul th:each="brand: ${brands}">
+                                    <li class="filter-list">
+                                        <!--<input class="pixel-radio" type="radio">-->
+                                        <a class="categoryname" th:href="@{|/shop?bid=${brand.id}|}"><label
+                                                th:text="${brand.name}"></label>
+                                            <span th:text="' ('+${brand.cameras.size()}+')'"></span></a>
+                                        <!--<a></a>
+                                        <label>Canon<span>(29)</span></label>-->
                                     </li>
                                 </ul>
                             </form>
@@ -116,198 +92,29 @@
                     <!-- Start Best Seller -->
                     <section class="lattest-product-area pb-40 category-list">
                         <div class="row">
-                            <div class="col-md-6 col-lg-4">
+                            <div class="col-md-6 col-lg-4" th:each="item: ${items}">
                                 <div class="card text-center card-product">
                                     <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/fujifilm-x-s20.jpg" alt="">
+                                        <img class="card-img" th:src="@{|/customer/img/product/${item.primaryImage}|}"
+                                             alt="">
                                         <ul class="card-product__imgOverlay">
                                             <li>
-                                                <button><i class="ti-info-alt"></i></button>
+                                                <button th:href="@{|/shop/product/${item.id}|}"><i
+                                                        class="ti-info-alt"></i></button>
                                             </li>
                                             <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
+                                                <button th:attr="ng-click=@{|cart.add(${item.id})|}"><i class="ti-shopping-cart"></i></button>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="card-body">
-                                        <p>Mirrorless</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Fujifilm
-                                            X-S20</a></h4>
-                                        <p class="card-product__price">$1500.00</p>
+                                        <p th:text="${item.category.name}">Mirrorless</p>
+                                        <h4 class="card-product__title"><a th:href="@{|/shop/product/${item.id}|}"
+                                                                           th:text="${item.name}"></a></h4>
+                                        <p class="card-product__price" th:text="${item.price}"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/sony-a7s-mark-iii.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Compact</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Sony Alpha
-                                            A7S III</a></h4>
-                                        <p class="card-product__price">$3000.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/canon-eos-r6.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>DSLR</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Canon EOS
-                                            R6</a></h4>
-                                        <p class="card-product__price">$2400.00</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/fujifilm-x-s20.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Mirrorless</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Fujifilm
-                                            X-S20</a></h4>
-                                        <p class="card-product__price">$1500.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/sony-a7s-mark-iii.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Compact</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Sony Alpha
-                                            A7S III</a></h4>
-                                        <p class="card-product__price">$3000.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/canon-eos-r6.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>DSLR</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Canon EOS
-                                            R6</a></h4>
-                                        <p class="card-product__price">$2400.00</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/fujifilm-x-s20.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Mirrorless</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Fujifilm
-                                            X-S20</a></h4>
-                                        <p class="card-product__price">$1500.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/sony-a7s-mark-iii.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>Compact</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Sony Alpha
-                                            A7S III</a></h4>
-                                        <p class="card-product__price">$3000.00</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-4">
-                                <div class="card text-center card-product">
-                                    <div class="card-product__img">
-                                        <img class="card-img" src="../img/product/canon-eos-r6.jpg" alt="">
-                                        <ul class="card-product__imgOverlay">
-                                            <li>
-                                                <button><i class="ti-info-alt"></i></button>
-                                            </li>
-                                            <li>
-                                                <button><i class="ti-shopping-cart"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body">
-                                        <p>DSLR</p>
-                                        <h4 class="card-product__title"><a href="single-product.html">Máy ảnh Canon EOS
-                                            R6</a></h4>
-                                        <p class="card-product__price">$2400.00</p>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </section>
                     <!-- End Best Seller -->
@@ -328,23 +135,23 @@
                 <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div class="single-search-product-wrapper">
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Canon EOS R6</a>
+                                <a href="product.html" class="title">Máy ảnh Canon EOS R6</a>
                                 <div class="price">$2400</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
+                                <a href="product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
                                 <div class="price">$3000</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Fujifilm X-S20</a>
+                                <a href="product.html" class="title">Máy ảnh Fujifilm X-S20</a>
                                 <div class="price">$1500</div>
                             </div>
                         </div>
@@ -354,23 +161,23 @@
                 <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div class="single-search-product-wrapper">
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Canon EOS R6</a>
+                                <a href="product.html" class="title">Máy ảnh Canon EOS R6</a>
                                 <div class="price">$2400</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
+                                <a href="product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
                                 <div class="price">$3000</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Fujifilm X-S20</a>
+                                <a href="product.html" class="title">Máy ảnh Fujifilm X-S20</a>
                                 <div class="price">$1500</div>
                             </div>
                         </div>
@@ -380,23 +187,23 @@
                 <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div class="single-search-product-wrapper">
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Canon EOS R6</a>
+                                <a href="product.html" class="title">Máy ảnh Canon EOS R6</a>
                                 <div class="price">$2400</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
+                                <a href="product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
                                 <div class="price">$3000</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Fujifilm X-S20</a>
+                                <a href="product.html" class="title">Máy ảnh Fujifilm X-S20</a>
                                 <div class="price">$1500</div>
                             </div>
                         </div>
@@ -406,23 +213,23 @@
                 <div class="col-sm-6 col-xl-3 mb-4 mb-xl-0">
                     <div class="single-search-product-wrapper">
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/canon-eos-r6.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Canon EOS R6</a>
+                                <a href="product.html" class="title">Máy ảnh Canon EOS R6</a>
                                 <div class="price">$2400</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/sony-a7s-mark-iii.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
+                                <a href="product.html" class="title">Máy ảnh Sony Alpha A7S III</a>
                                 <div class="price">$3000</div>
                             </div>
                         </div>
                         <div class="single-search-product d-flex">
-                            <a href="single-product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
+                            <a href="product.html"><img src="../img/product/fujifilm-x-s20.jpg" alt=""></a>
                             <div class="desc">
-                                <a href="single-product.html" class="title">Máy ảnh Fujifilm X-S20</a>
+                                <a href="product.html" class="title">Máy ảnh Fujifilm X-S20</a>
                                 <div class="price">$1500</div>
                             </div>
                         </div>
@@ -434,5 +241,4 @@
     <!-- ================ top product area end ================= -->
 </main>
 </body>
-
 </html>

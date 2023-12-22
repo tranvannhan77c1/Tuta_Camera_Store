@@ -43,10 +43,10 @@ public class Account {
     @Column(name = "District")
     private String district;
 
-    @Column(name = "Commune")
-    private String commune;
+    @Column(name = "Ward")
+    private String ward;
 
-    @Column(name = "SpecificAddress")
+    @Column(name = "Specificaddress")
     private String specificAddress;
 
     @JsonIgnore

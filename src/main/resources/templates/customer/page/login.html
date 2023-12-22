@@ -25,24 +25,25 @@
                 <div class="col-lg-6">
                     <div class="login_form_inner">
                         <h3>Đăng nhập để Mua sắm</h3>
-                        <form class="row login_form" action="#/" id="contactForm">
+                        <form class="row login_form" th:action="@{/login}" method="post" >
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name"
+                                <input type="text" class="form-control" name="username"
                                        placeholder="Tên đăng nhập"
                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Tên đăng nhập'">
                             </div>
                             <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Mật khẩu"
+                                <input type="password" class="form-control" name="password" placeholder="Mật khẩu"
                                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mật khẩu'">
                             </div>
                             <div class="col-md-12 form-group">
                                 <div class="creat_account">
-                                    <input type="checkbox" id="f-option2" name="selector">
-                                    <label for="f-option2">Giữ tôi luôn đăng nhập</label>
+                                    <input type="checkbox" name="remember-me">
+                                    <label>Giữ tôi luôn đăng nhập</label>
                                 </div>
                             </div>
                             <div class="col-md-12 form-group">
-                                <button type="submit" value="submit" class="button button-login w-100">Đăng Nhập
+                                <span class="text-center message-error" th:text="${message}"></span>
+                                <button type="submit" class="button button-login w-100 m-2">Đăng Nhập
                                 </button>
                                 <a href="forgotpassword.html">Quên mật khẩu ?</a>
                             </div>

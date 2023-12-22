@@ -21,11 +21,11 @@ public class Camera {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "CategoryId", nullable = false)
+    @JoinColumn(name = "Categoryid", nullable = false)
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "BrandId", nullable = false)
+    @JoinColumn(name = "Brandid", nullable = false)
     private Brand brand;
 
     @Column(name = "Price")
@@ -55,15 +55,15 @@ public class Camera {
     @Column(name = "Weight")
     private String weight;
 
-    @Column(name = "PrimaryImage")
+    @Column(name = "Primaryimage")
     private String primaryImage;
 
-    @Column(name = "AdditionalImage1")
+    @Column(name = "Additionalimage1")
     private String additionalImage1;
 
-    @Column(name = "AdditionalImage2")
+    @Column(name = "Additionalimage2")
     private String additionalImage2;
 
-    @Column(name = "AdditionalImage3")
+    @Column(name = "Additionalimage3")
     private String additionalImage3;
 }

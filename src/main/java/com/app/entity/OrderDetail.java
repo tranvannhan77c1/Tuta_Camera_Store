@@ -18,11 +18,11 @@ public class OrderDetail {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "OrderId", nullable = false)
+    @JoinColumn(name = "Orderid", nullable = false)
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "CameraId", nullable = false)
+    @JoinColumn(name = "Cameraid", nullable = false)
     private Camera camera;
 
     @Column(name = "Quantity")

@@ -21,17 +21,17 @@ public class Order {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "AccountId", nullable = false)
+    @JoinColumn(name = "Accountid", nullable = false)
     private Account account;
 
-    @Column(name = "OrderDate")
+    @Column(name = "Orderdate")
     @Temporal(TemporalType.DATE)
     private Date orderDate;
 
-    @Column(name = "TotalOrderAmount")
+    @Column(name = "Totalorderamount")
     private int totalOrderAmount;
 
-    @Column(name = "PaymentMethod")
+    @Column(name = "Paymentmethod")
     private boolean paymentMethod = false;
     //Cách khác
     /*(columnDefinition = "BIT DEFAULT 0")
@@ -43,10 +43,10 @@ public class Order {
     @Column(name = "District")
     private String district;
 
-    @Column(name = "Commune")
-    private String commune;
+    @Column(name = "Ward")
+    private String ward;
 
-    @Column(name = "SpecificAddress")
+    @Column(name = "Specificaddress")
     private String specificAddress;
 
     @Column(name = "Email")

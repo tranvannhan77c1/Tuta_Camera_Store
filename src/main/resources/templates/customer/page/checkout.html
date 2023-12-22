@@ -3,193 +3,139 @@
       th:replace="~{/customer/layout/index :: dynamic(~{::title}, ~{::main})}">
 
 <head>
-  <title>TUTA - Checkout</title>
+    <title>TUTA - Checkout</title>
 </head>
 
 <body>
 <main class="site-main">
-  <!--================Checkout Area =================-->
-  <section class="checkout_area section-margin--small">
-    <div class="container">
-      <div class="returning_customer">
-        <div class="check_title">
-          <h2>Khách hàng cũ ? <a href="login.html">Nhấn vào đây để Đăng Nhập</a></h2>
-        </div>
-        <!--<p>Nếu bạn đã từng mua hàng với chúng tôi trước đây, vui lòng nhập thông tin chi tiết của bạn vào các ô bên
-          dưới. Nếu bạn là khách hàng mới, vui lòng chuyển sang phần Thanh toán & Vận chuyển.</p>
-        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-          <div class="col-md-6 form-group p_star">
-            <input type="text" class="form-control" placeholder="Tên người dùng hoặc email*"
-              onfocus="this.placeholder=''" onblur="this.placeholder = 'Tên người dùng hoặc email*'" id="name"
-              name="name">
-            &lt;!&ndash; <span class="placeholder" data-placeholder="Username or Email"></span> &ndash;&gt;
-          </div>
-          <div class="col-md-6 form-group p_star">
-            <input type="password" class="form-control" placeholder="Mật khẩu*" onfocus="this.placeholder=''"
-              onblur="this.placeholder = 'Mật khẩu*'" id="password" name="password">
-            &lt;!&ndash; <span class="placeholder" data-placeholder="Password"></span> &ndash;&gt;
-          </div>
-          <div class="col-md-12 form-group">
-            <button type="submit" value="submit" class="button button-login">Đăng Nhập</button>
-            <div class="creat_account">
-              <input type="checkbox" id="f-option" name="selector">
-              <label for="f-option">Nhớ mật khẩu</label>
+    <!--================Checkout Area =================-->
+    <section class="checkout_area section-margin--small">
+        <div class="container">
+            <div class="returning_customer">
             </div>
-            <a class="lost_pass" href="#">Quên mật khẩu?</a>
-          </div>
-        </form>-->
-      </div>
-      <div class="billing_details">
-        <div class="row">
-          <div class="col-lg-7">
-            <h3>Thông tin thanh toán</h3>
-            <form class="row contact_form" action="#" method="post">
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="first" name="name" placeholder="Họ">
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="last" name="name" placeholder="Tên">
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="number" name="number" placeholder="Số điện thoại">
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email">
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">Tỉnh/Thành Phố</option>
-                  <option value="2">Bình Định</option>
-                  <option value="4">Hồ Chí Minh</option>
-                </select>
-              </div>
-                <!-- <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="add1" name="add1">
-                  <span class="placeholder" data-placeholder="Address line 01"></span>
-                </div>
-                <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="add2" name="add2">
-                  <span class="placeholder" data-placeholder="Address line 02"></span>
-                </div>
-                <div class="col-md-12 form-group p_star">
-                  <input type="text" class="form-control" id="city" name="city">
-                  <span class="placeholder" data-placeholder="Town/City"></span>
-                </div> -->
-              <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">Quận/Huyện</option>
-                  <option value="2">Hoài Nhơn</option>
-                  <option value="4">Quận Bình Tân</option>
-                </select>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">Xã/Phường</option>
-                  <option value="2">Hoài Mỹ</option>
-                  <option value="4">Bình Hưng Hòa B</option>
-                </select>
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" name="name" placeholder="Số Nhà/Địa Chỉ Cụ Thể">
-              </div>
-              <div class="col-md-12 form-group">
-                <div class="creat_account">
-                  <input type="checkbox" id="f-option2" name="selector">
-                  <label for="f-option2">Đăng ký tài khoản ?</label>
-                </div>
-              </div>
-              <div class="col-md-12 form-group mb-0">
-                <div class="creat_account">
-                  <h3>Thông tin giao hàng</h3>
-                  <input type="checkbox" id="f-option3" name="selector" onclick="toggleContent()">
-                  <label for="f-option3">Gửi đến địa chỉ khác ?</label>
-                </div>
-                <div id="alternateContent" style="display: none;">
-                  <div class="row">
-                    <div class="col-md-12 form-group p_star">
-                      <select class="country_select">
-                        <option value="1">Tỉnh/Thành Phố</option>
-                        <option value="2">Bình Định</option>
-                        <option value="4">Hồ Chí Minh</option>
-                      </select>
+            <div class="billing_details">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <h3>Thông tin người nhận</h3>
+                        <form class="row contact_form" action="#" method="post">
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.firstname" th:value="${account.firstname}"
+                                       placeholder="Họ">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.lastname" th:value="${account.lastname}"
+                                       placeholder="Tên">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.phone"
+                                       th:value="${account.phone}" placeholder="Số điện thoại">
+                            </div>
+                            <div class="col-md-6 form-group p_star">
+                                <input type="email" class="form-control" ng-model="order.email"
+                                       th:value="${account.email}" placeholder="Email">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.province" th:value="${account.province}" name="province"
+                                       placeholder="Tỉnh/Thành Phố">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.district" th:value="${account.district}" name="district"
+                                       placeholder="Huyện/Quận">
+                            </div>
+                            <div class="col-md-12 form-group p_star">
+                                <input type="text" class="form-control" ng-model="order.ward" th:value="${account.ward}" name="ward"
+                                       placeholder="Xã/Phường">
+                            </div>
+                            <div class="col-md-12 form-group">
+                                <input type="text" class="form-control" ng-model="order.specificAddress" th:value="${account.specificAddress}"
+                                       name="specificAddress"
+                                       placeholder="Số Nhà/Địa Chỉ Cụ Thể">
+                            </div>
+                            <div class="col-md-12 form-group mb-0">
+                                <div class="creat_account">
+                                    <h3>Thông tin giao hàng</h3>
+                                    <input type="checkbox" id="f-option3" name="selector" onclick="toggleContent()">
+                                    <label for="f-option3">Gửi đến địa chỉ khác ?</label>
+                                </div>
+                                <div id="alternateContent" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group p_star">
+                                            <select class="country_select">
+                                                <option value="1">Tỉnh/Thành Phố</option>
+                                                <option value="2">Bình Định</option>
+                                                <option value="4">Hồ Chí Minh</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <select class="country_select">
+                                                <option value="1">Quận/Huyện</option>
+                                                <option value="2">Hoài Nhơn</option>
+                                                <option value="4">Quận Bình Tân</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group p_star">
+                                            <select class="country_select">
+                                                <option value="1">Xã/Phường</option>
+                                                <option value="2">Hoài Mỹ</option>
+                                                <option value="4">Bình Hưng Hòa B</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <input type="text" class="form-control" name="name"
+                                                   placeholder="Số Nhà/Địa Chỉ Cụ Thể">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <div class="col-md-12 form-group p_star">
-                      <select class="country_select">
-                        <option value="1">Quận/Huyện</option>
-                        <option value="2">Hoài Nhơn</option>
-                        <option value="4">Quận Bình Tân</option>
-                      </select>
+                    <div class="col-lg-5">
+                        <div class="order_box">
+                            <h2>Đơn hàng của bạn</h2>
+                            <ul class="list" ng-repeat="item in cart.items">
+                                <li><a href="#">
+                                    <h4>Sản Phẩm <span>Tổng Tiền</span></h4>
+                                </a></li>
+                                <li><a href="#">{{item.name}}<span class="middle">x {{item.quantity}}</span> <span
+                                        class="last">{{(item.price*item.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}}</span></a>
+                                </li>
+
+                            </ul>
+                            <ul class="list list_2">
+                                <li><a href="#">Tổng <span>{{ cart.totalCart.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' }) }}</span></a>
+                                </li>
+                            </ul>
+                            <div class="payment_item">
+                                <div class="radion_btn">
+                                    <input type="radio" id="paymentMethod1" ng-click="order.updatePaymentMethod('cash')" name="paymentMethod">
+                                    <label for="paymentMethod1">Thanh toán khi nhận hàng</label>
+                                    <div class="check"></div>
+                                </div>
+                                <p>Vui lòng thanh toán tiền khi có cuộc gọi từ người vận chuyển để nhận hàng. Mọi thắc
+                                    nắt vui lòng liên
+                                    hệ với Cửa Hàng.</p>
+                            </div>
+                            <div class="payment_item active">
+                                <div class="radion_btn">
+                                    <input type="radio" id="paymentMethod2" ng-click="order.updatePaymentMethod('paypal')" name="paymentMethod">
+                                    <label for="paymentMethod2">Paypal </label>
+                                    <img src="" alt="">
+                                    <div class="check"></div>
+                                </div>
+                                <p>Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu bạn không có tài
+                                    khoản PayPal.</p>
+                            </div>
+                            <div class="text-center">
+                                <button ng-click="order.submitOrder()" class="button button-paypal">Đặt Hàng</button>
+                                <!--<a ng-click="oder.submitOder()" class="button button-paypal"></a>-->
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-12 form-group p_star">
-                      <select class="country_select">
-                        <option value="1">Xã/Phường</option>
-                        <option value="2">Hoài Mỹ</option>
-                        <option value="4">Bình Hưng Hòa B</option>
-                      </select>
-                    </div>
-                    <div class="col-md-12 form-group">
-                      <input type="text" class="form-control" name="name" placeholder="Số Nhà/Địa Chỉ Cụ Thể">
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-lg-5">
-            <div class="order_box">
-              <h2>Đơn hàng của bạn</h2>
-              <ul class="list">
-                <li><a href="#">
-                    <h4>Sản Phẩm <span>Tổng Tiền</span></h4>
-                  </a></li>
-                <li><a href="#">Máy ảnh Fujifilm X-S20<span class="middle">x 02</span> <span
-                      class="last">$720.00</span></a>
-                </li>
-                <li><a href="#">Máy ảnh Canon EOS R6<span class="middle">x 02</span> <span
-                      class="last">$720.00</span></a>
-                </li>
-                <li><a href="#">Máy ảnh Sony Alpha A7S III<span class="middle">x 02</span> <span
-                      class="last">$720.00</span></a>
-                </li>
-              </ul>
-              <ul class="list list_2">
-                <!-- <li><a href="#">Tạm tính <span>$2160.00</span></a></li>
-                <li><a href="#">Phí vận chuyển <span>Giao hàng thông thường | $50.00</span></a></li> -->
-                <li><a href="#">Tổng <span>$2210.00</span></a></li>
-              </ul>
-              <div class="payment_item">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option5" name="selector">
-                  <label for="f-option5">Thanh toán khi nhận hàng</label>
-                  <div class="check"></div>
-                </div>
-                <p>Vui lòng thanh toán tiền khi có cuộc gọi từ người vận chuyển để nhận hàng. Mọi thắc nắt vui lòng liên
-                  hệ với Cửa Hàng.</p>
-              </div>
-              <div class="payment_item active">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option6" name="selector">
-                  <label for="f-option6">Paypal </label>
-                  <img src="" alt="">
-                  <div class="check"></div>
-                </div>
-                <p>Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu bạn không có tài khoản PayPal.</p>
-              </div>
-              <div class="creat_account">
-                <input type="checkbox" id="f-option4" name="selector">
-                <label for="f-option4">Tôi đã đọc và chấp nhận các </label>
-                <a href="#"> điều khoản và điều kiện*</a>
-              </div>
-              <div class="text-center">
-                <a class="button button-paypal" href="confirmation.html">Thanh Toán</a>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!--================End Checkout Area =================-->
+    </section>
+    <!--================End Checkout Area =================-->
 </main>
 </body>
 </html>
